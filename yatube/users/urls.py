@@ -1,7 +1,11 @@
-from django.contrib.auth.views import (LoginView, LogoutView, 
-                                       PasswordChangeView, PasswordChangeDoneView, 
-                                       PasswordResetView, PasswordResetDoneView, 
-                                       PasswordResetConfirmView, PasswordResetCompleteView)
+from django.contrib.auth.views import (LoginView, 
+                                       LogoutView,
+                                       PasswordChangeView,
+                                       PasswordChangeDoneView,
+                                       PasswordResetView,
+                                       PasswordResetDoneView,
+                                       PasswordResetConfirmView,
+                                       PasswordResetCompleteView)
 from django.urls import path
 from django.urls import reverse_lazy
 
@@ -26,8 +30,8 @@ urlpatterns = [
     path(
         'login/',
         LoginView.as_view
-            (template_name='users/login.html',
-            success_url = reverse_lazy('users:login')),
+        (template_name='users/login.html',
+         success_url=reverse_lazy('users:login')),
         name='login'
     ),
 
@@ -40,29 +44,29 @@ urlpatterns = [
 
     path(
         'password_change/done',
-        PasswordChangeDoneView.as_view(
-        template_name='users/password_change_done.html'),
+        PasswordChangeDoneView.as_view
+        (template_name='users/password_change_done.html'),
         name='password_change_done'
     ),
 
     path(
         'password_reset',
-        PasswordResetView.as_view(
-        template_name='users/password_reset_form.html'),
+        PasswordResetView.as_view
+        (template_name='users/password_reset_form.html'),
         name='password_reset_form'
     ),
 
     path(
         'password_reset/done',
-        PasswordResetDoneView.as_view(
-        template_name='users/password_reset_done.html'),
+        PasswordResetDoneView.as_view
+        (template_name='users/password_reset_done.html'),
         name='password_reset_done'
     ),
 
     path(
         'password_reset/<uidb64>/<token>',
-        PasswordResetConfirmView.as_view(
-        template_name='users/password_reset_confirm.html'),
+        PasswordResetConfirmView.as_view
+        (template_name='users/password_reset_confirm.html'),
         name='password_reset_token'
     ),
 
