@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django import forms
 
 User = get_user_model()
 
@@ -21,11 +20,11 @@ class Post(models.Model):
         related_name='posts'
     )
 
-    def __str__(self):
-        return self.text
-
     class Meta:
         ordering = ['-pub_date']
+
+    def __str__(self):
+        return self.text
 
 
 class Group(models.Model):
@@ -35,13 +34,3 @@ class Group(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = ('text', 'group')
-        help_texts = {
-            'text': 'Текст нового поста',
-            'group': 'Группа, к которой относится пост',
-        }

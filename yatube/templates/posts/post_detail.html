@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  <title> Пост {{ post.text|stringformat:".10s" }}</title>
+Пост {{ post.text|truncatechars:10 }}
 {% endblock title %}
-'
+
 {% block content %}
 
 <div class="row">
@@ -42,6 +42,3 @@
 </div> 
 
 {% endblock content %}
-
-
-
